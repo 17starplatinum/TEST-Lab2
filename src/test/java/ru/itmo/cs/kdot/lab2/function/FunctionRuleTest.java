@@ -9,6 +9,7 @@ import ru.itmo.cs.kdot.lab2.trig.*;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
+
 import static java.math.BigDecimal.ONE;
 import static org.junit.jupiter.api.Assertions.*;
 

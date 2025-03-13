@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import ru.itmo.cs.kdot.lab2.log.BaseNLogarithm;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.ZERO;

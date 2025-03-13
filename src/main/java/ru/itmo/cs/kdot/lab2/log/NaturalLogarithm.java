@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 import static java.lang.String.format;
 import static java.math.RoundingMode.HALF_EVEN;
-import static java.math.RoundingMode.HALF_UP;
 
 public class NaturalLogarithm extends AbstractFunction {
     public NaturalLogarithm() {

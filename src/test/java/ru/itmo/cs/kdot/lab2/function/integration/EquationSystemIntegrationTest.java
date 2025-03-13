@@ -1,6 +1,5 @@
 package ru.itmo.cs.kdot.lab2.function.integration;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,10 +14,8 @@ import ru.itmo.cs.kdot.lab2.log.NaturalLogarithm;
 import ru.itmo.cs.kdot.lab2.trig.*;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import static java.math.BigDecimal.ZERO;
-import static java.math.RoundingMode.HALF_EVEN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;

@@ -1,6 +1,5 @@
 package ru.itmo.cs.kdot.lab2.trig.module;
 
-import ch.obermuhlner.math.big.BigDecimalMath;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,12 +8,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.itmo.cs.kdot.lab2.trig.Tangent;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 import static java.lang.String.format;
 import static java.math.BigDecimal.ZERO;
 import static java.math.RoundingMode.HALF_EVEN;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TangentTest {
     private static final BigDecimal PRECISION = new BigDecimal("0.0000001");

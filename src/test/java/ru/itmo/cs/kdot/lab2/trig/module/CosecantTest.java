@@ -13,9 +13,9 @@ import java.math.MathContext;
 
 import static java.lang.String.format;
 import static java.math.BigDecimal.ONE;
-import static java.math.BigDecimal.ZERO;
 import static java.math.RoundingMode.HALF_EVEN;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CosecantTest {
     private static final BigDecimal PRECISION = new BigDecimal("0.0000001");

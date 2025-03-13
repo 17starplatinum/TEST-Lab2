@@ -3,7 +3,6 @@ package ru.itmo.cs.kdot.lab2.trig;
 import ru.itmo.cs.kdot.lab2.function.AbstractFunction;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 import static java.lang.String.format;
 import static java.math.RoundingMode.HALF_EVEN;

@@ -9,6 +9,7 @@ import ru.itmo.cs.kdot.lab2.trig.Secant;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+
 import static java.math.BigDecimal.ONE;
 import static java.math.BigDecimal.ZERO;
 import static java.math.MathContext.DECIMAL128;

@@ -1,6 +1,5 @@
 package ru.itmo.cs.kdot.lab2;
 
-import ch.obermuhlner.math.big.BigDecimalMath;
 import lombok.AllArgsConstructor;
 import ru.itmo.cs.kdot.lab2.function.AbstractFunction;
 import ru.itmo.cs.kdot.lab2.log.BaseNLogarithm;
@@ -13,7 +12,6 @@ import java.math.MathContext;
 import static java.lang.String.format;
 import static java.math.BigDecimal.ZERO;
 import static java.math.MathContext.DECIMAL128;
-import static java.math.RoundingMode.HALF_DOWN;
 import static java.math.RoundingMode.HALF_EVEN;
 
 @AllArgsConstructor

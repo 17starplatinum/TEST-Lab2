@@ -1,10 +1,12 @@
 package ru.itmo.cs.kdot.lab2.util;
 
 import lombok.SneakyThrows;
-import ru.itmo.cs.kdot.lab2.EquationSystem;
 import ru.itmo.cs.kdot.lab2.function.AbstractFunction;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 
 public class CSVGraphWriter {
