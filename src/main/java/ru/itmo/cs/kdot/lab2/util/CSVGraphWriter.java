@@ -21,7 +21,7 @@ public class CSVGraphWriter {
         this.function = function;
     }
 
-    private FileWriter createFileAndDirectory(AbstractFunction function) throws IOException {
+    private FileWriter createFileAndDirectory(AbstractFunction function) {
         try {
             fileName = fileName + function.getClass().getSimpleName() + ".csv";
             File file = new File(fileName);
@@ -31,11 +31,10 @@ public class CSVGraphWriter {
                 file.createNewFile();
                 fileWriter = new FileWriter(file);
             }
-            return fileWriter;
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
+        return fileWriter;
     }
 
     @SneakyThrows

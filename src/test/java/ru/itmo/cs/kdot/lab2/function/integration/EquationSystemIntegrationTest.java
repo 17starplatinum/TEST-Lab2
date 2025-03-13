@@ -23,7 +23,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class EquationSystemIntegrationTest {
 
-    private final EquationSystem equationSystem = new EquationSystem();
     private static final BigDecimal PRECISION = new BigDecimal("0.0000001");
     @Spy
     private Cosine spyCos;
