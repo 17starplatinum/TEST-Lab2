@@ -27,7 +27,7 @@ jobs:
       - name: Build with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew build
+          ./gradlew clean build
 
   module-tests:
     name: Run Module Tests
@@ -52,4 +52,4 @@ jobs:
       - name: Run Module Tests
         run: |
           chmod +x gradlew
-          ./gradlew test
+          ./gradlew clean test
