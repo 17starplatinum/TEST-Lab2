@@ -41,7 +41,7 @@ jacoco {
 
 tasks.test {
     extensions.configure(JacocoTaskExtension::class) {
-        setDestinationFile(file(layout.buildDirectory.dir("jacoco/jacoco.exec")))
+        setDestinationFile(file(layout.buildDirectory.file("jacoco/jacoco.exec")))
     }
 
     finalizedBy(tasks.jacocoTestReport)
