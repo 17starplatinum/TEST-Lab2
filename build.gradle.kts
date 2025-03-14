@@ -41,7 +41,7 @@ jacoco {
 
 tasks.test {
     extensions.configure(JacocoTaskExtension::class) {
-        setDestinationFile(file(layout.buildDirectory.dir("/jacoco/jacoco.exec")))
+        setDestinationFile(file(layout.buildDirectory.dir("jacoco/jacoco.exec")))
     }
 
     finalizedBy(tasks.jacocoTestReport)
@@ -53,7 +53,7 @@ tasks.jacocoTestReport {
         xml.required = false
         csv.required = false
         html.required = true
-        html.outputLocation = file(layout.buildDirectory.dir("/reports/coverage"))
+        html.outputLocation = file(layout.buildDirectory.dir("reports/coverage"))
     }
     finalizedBy(tasks.jacocoTestCoverageVerification)
 }
