@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Locale;
+
+import static java.lang.String.format;
 
 public class CSVGraphWriter {
     private final BufferedWriter writer;
@@ -15,9 +18,15 @@ public class CSVGraphWriter {
     private FileWriter fileWriter;
     String fileName = System.getProperty("user.dir") + "\\graphs\\";
 
-    public CSVGraphWriter(AbstractFunction function) throws IOException {
+    public CSVGraphWriter(AbstractFunction function) {
         createFileAndDirectory(function);
         this.writer = new BufferedWriter(fileWriter);
+        this.function = function;
+    }
+
+    public CSVGraphWriter(BufferedWriter writer, AbstractFunction function) {
+        createFileAndDirectory(function);
+        this.writer = writer;
         this.function = function;
     }
 
@@ -44,9 +53,9 @@ public class CSVGraphWriter {
         for (BigDecimal i = x1; i.compareTo(x2) <= 0; i = i.add(d)) {
             try {
                 BigDecimal y = function.calculate(i, precision);
-                writer.write(String.format("%f,%f%n", i, y));
+                writer.write(format(Locale.ENGLISH, "%f,%f%n", i, y));
             } catch (ArithmeticException e) {
-                writer.write("");
+                writer.newLine();
             }
         }
         writer.flush();

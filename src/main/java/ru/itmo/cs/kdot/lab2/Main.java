@@ -12,7 +12,7 @@ import static java.math.BigDecimal.ONE;
 import static java.math.RoundingMode.HALF_EVEN;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final BigDecimal PRECISION = new BigDecimal("0.0000001");
         final BigDecimal POSITIVE_END = ONE.setScale(7, HALF_EVEN);
         final BigDecimal NEGATIVE_END = POSITIVE_END.negate();

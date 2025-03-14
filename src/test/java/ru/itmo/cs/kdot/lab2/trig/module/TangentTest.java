@@ -24,9 +24,10 @@ class TangentTest {
         tan = new Tangent();
     }
 
-    @Test
-    void shouldCalculateForZero() {
-        assertEquals(ZERO.setScale(PRECISION.scale(), HALF_EVEN), tan.calculate(ZERO, PRECISION));
+    @ParameterizedTest(name = "tan({0})")
+    @ValueSource(doubles = {-Math.PI, 0, Math.PI})
+    void shouldCalculateForPi(double x) {
+        assertEquals(ZERO.setScale(PRECISION.scale(), HALF_EVEN), tan.calculate(BigDecimal.valueOf(x), PRECISION));
     }
 
     @ParameterizedTest

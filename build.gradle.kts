@@ -1,11 +1,12 @@
 plugins {
     id("java")
-
     id("application")
+    id("jacoco")
 }
 
 val lombokVersion = "1.18.36"
 val mockitoVersion = "5.16.0"
+
 group = "ru.itmo.cs.kdot.lab2"
 version = "1.0-SNAPSHOT"
 
@@ -15,12 +16,6 @@ repositories {
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
-    options.forkOptions.jvmArgs?.add("-J-Duser.language=en")
-}
-
-application {
-    mainClass = "${group}.Main"
-    applicationDefaultJvmArgs = listOf("-Duser.language=en")
 }
 
 dependencies {
@@ -33,9 +28,54 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.mockito:mockito-core:${mockitoVersion}")
     testImplementation("org.mockito:mockito-junit-jupiter:${mockitoVersion}")
-    testImplementation("org.jacoco:org.jacoco.agent:0.8.12")
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.12"
+    reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
 }
 
 tasks.test {
-    useJUnitPlatform()
+    extensions.configure(JacocoTaskExtension::class) {
+        setDestinationFile(file(layout.buildDirectory.dir("/jacoco/jacoco.exec")))
+    }
+
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required = false
+        csv.required = false
+        html.required = true
+        html.outputLocation = file(layout.buildDirectory.dir("/reports/coverage"))
+    }
+    finalizedBy(tasks.jacocoTestCoverageVerification)
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.85".toBigDecimal()
+            }
+        }
+        // Я хз что это делает
+        rule {
+            isEnabled = false
+            element = "CLASS"
+            includes = listOf("org.gradle.*")
+
+            limit {
+                counter = "LINE"
+                value = "TOTALCOUNT"
+                maximum = "0.3".toBigDecimal()
+            }
+        }
+    }
 }

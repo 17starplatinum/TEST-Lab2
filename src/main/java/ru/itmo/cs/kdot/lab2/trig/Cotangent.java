@@ -43,9 +43,8 @@ public class Cotangent extends AbstractFunction {
             return ZERO.setScale(precision.scale(), HALF_EVEN);
         }
         BigDecimal remainder = x.remainder(PI);
-        boolean secondQuarter = remainder.compareTo(PI_2) > 0 && remainder.compareTo(PI) < 0;
-        boolean fourthQuarter = remainder.compareTo(PI_2.negate()) > 0 && remainder.compareTo(ZERO) < 0;
-        if(secondQuarter || fourthQuarter) {
+
+        if((remainder.compareTo(PI_2) > 0 && remainder.compareTo(PI) < 0) || (remainder.compareTo(PI_2.negate()) > 0 && remainder.compareTo(ZERO) < 0)) {
             result = result.negate();
         }
         return result.setScale(precision.scale(), HALF_EVEN);

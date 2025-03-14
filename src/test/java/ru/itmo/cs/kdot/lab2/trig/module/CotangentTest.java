@@ -1,6 +1,7 @@
 package ru.itmo.cs.kdot.lab2.trig.module;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
+import lombok.Value;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,10 +26,10 @@ class CotangentTest {
         cot = new Cotangent();
     }
 
-    @Test
-    void shouldCalculateForPiHalf() {
-        MathContext mc = new MathContext(PRECISION.scale(), HALF_EVEN);
-        BigDecimal arg = BigDecimalMath.pi(mc).divide(BigDecimal.valueOf(2), mc);
+    @ParameterizedTest(name = "cot({0})")
+    @ValueSource(doubles = {-1.5 * Math.PI, -Math.PI / 2, Math.PI / 2, 1.5 * Math.PI})
+    void shouldCalculateForPiHalf(double x) {
+        BigDecimal arg = BigDecimal.valueOf(x);
         assertEquals(ZERO.setScale(PRECISION.scale(), HALF_EVEN), cot.calculate(arg, PRECISION));
     }
 
