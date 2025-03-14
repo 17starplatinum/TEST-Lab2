@@ -27,7 +27,7 @@ jobs:
       - name: Build with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew clean build
+          ./gradlew clean build --stacktrace
 
   module-tests:
     name: Run Module Tests

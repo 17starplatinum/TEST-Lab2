@@ -65,17 +65,5 @@ tasks.jacocoTestCoverageVerification {
                 minimum = "0.85".toBigDecimal()
             }
         }
-        // Я хз что это делает
-        rule {
-            isEnabled = false
-            element = "CLASS"
-            includes = listOf("org.gradle.*")
-
-            limit {
-                counter = "LINE"
-                value = "TOTALCOUNT"
-                maximum = "0.3".toBigDecimal()
-            }
-        }
     }
 }
