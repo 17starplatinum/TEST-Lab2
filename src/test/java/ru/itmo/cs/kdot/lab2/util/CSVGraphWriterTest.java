@@ -1,5 +1,6 @@
 package ru.itmo.cs.kdot.lab2.util;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
+import java.sql.SQLOutput;
 import java.util.List;
 
 import static java.math.BigDecimal.*;
@@ -76,5 +78,16 @@ class CSVGraphWriterTest {
         writer.write(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ONE, BigDecimal.valueOf(0.01));
 
         verify(mockWriter, atLeastOnce()).flush();
+    }
+
+    @AfterEach
+    void tearDown() {
+        writer = null;
+        File file = new File(System.getProperty("user.dir") + "\\graphs\\" + mockFunction.getClass().getSimpleName() + ".csv");
+        if (!(file.delete())) {
+            System.out.println("Файл удален.");
+        } else {
+            System.out.println("Файл не удален.");
+        }
     }
 }
