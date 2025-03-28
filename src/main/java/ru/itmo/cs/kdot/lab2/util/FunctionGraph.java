@@ -1,5 +1,5 @@
 package ru.itmo.cs.kdot.lab2.util;
-
+/*
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -66,3 +66,4 @@ public class FunctionGraph extends JFrame {
         return new ChartPanel(jFreeChart);
     }
 }
+*/

@@ -18,7 +18,7 @@ public class Main {
         final BigDecimal POSITIVE_END = ONE.setScale(7, HALF_EVEN);
         final BigDecimal NEGATIVE_END = POSITIVE_END.negate();
         final BigDecimal STEP = new BigDecimal("0.01");
-        final String[] functionNames = new String[8]{"cos(x)", "sec(x)", "csc(x)", "tan(x)", "cot(x)", "ln(x)", "log(x)", "f(x)"};
+        final String[] functionNames = new String[]{"cos(x)", "sec(x)", "csc(x)", "tan(x)", "cot(x)", "ln(x)", "log(x)", "f(x)"};
         new CSVGraphWriter(new Cosine()).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
         new CSVGraphWriter(new Secant()).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
         new CSVGraphWriter(new Cosecant()).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
