@@ -1,6 +1,9 @@
 # Integrine: next level of testing
 
 ## Лабораторная работа №2
+<p align="center">
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczUxMWFlNzJrcms3OWdtaTVwMHQyOXN4eXBsN210eXh6YWdhZ2lkaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RQig4TJz3WBQk/giphy.gif" alt="I'm fed up"/>
+</p>
 
 ### Вариант: `881`
 
