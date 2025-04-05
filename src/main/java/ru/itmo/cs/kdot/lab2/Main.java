@@ -9,8 +9,7 @@ import ru.itmo.cs.kdot.lab2.util.FunctionGraph;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static java.math.BigDecimal.ONE;
 import static java.math.RoundingMode.HALF_EVEN;
@@ -19,10 +18,13 @@ import static java.math.RoundingMode.HALF_EVEN;
 public class Main {
     public static void main(String[] args) {
         final BigDecimal PRECISION = new BigDecimal("0.0000001");
-        final BigDecimal POSITIVE_END = ONE.setScale(7, HALF_EVEN);
+        final BigDecimal POSITIVE_END = new BigDecimal(10).setScale(7, HALF_EVEN);
         final BigDecimal NEGATIVE_END = POSITIVE_END.negate();
         final BigDecimal STEP = new BigDecimal("0.01");
-        final String outputDir = System.getProperty("user.dir") + "/graphSrc/";
+        final String outputDir = System.getProperty("user.dir") + "\\graphSrc\\";
+
+        // ВАРНИНГ: КОСТЫЛЬ
+        final List<String> functionNames = Arrays.asList("log(x)", "csc(x)", "cos(x)", "cot(x)",  "f(x)", "ln(x)", "sec(x)", "tan(x)");
 
         new CSVGraphWriter(new Cosine(), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
         new CSVGraphWriter(new Secant(), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
@@ -31,7 +33,7 @@ public class Main {
         new CSVGraphWriter(new Cotangent(), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
         new CSVGraphWriter(new NaturalLogarithm(), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
         new CSVGraphWriter(new BaseNLogarithm(5), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
-        new CSVGraphWriter(new EquationSystem(), outputDir).write(new BigDecimal(-10), new BigDecimal(10), STEP, new BigDecimal("0.0001"));
+        new CSVGraphWriter(new EquationSystem(), outputDir).write(NEGATIVE_END, POSITIVE_END, STEP, PRECISION);
 
         List<String> files = new ArrayList<>();
         try {
@@ -45,8 +47,10 @@ public class Main {
             log.error(e.getMessage());
         }
 
-//        for (String fileName : files) {
-        FunctionGraph.displayChart(EquationSystem.class.getSimpleName().trim(), outputDir + EquationSystem.class.getSimpleName().trim() + ".csv");
-//        }
+        for(Iterator<String> it1 = functionNames.iterator(), it2 = files.iterator(); it1.hasNext() && it2.hasNext();){
+            String fileName = outputDir + it2.next();
+            String functionName = it1.next();
+            FunctionGraph.displayChart(functionName, fileName);
+        }
     }
 }
